@@ -98,7 +98,7 @@
       .submit-btn {padding:10px 20px;}
       .nav-wrap {margin:0 10px;padding:8px 10px;}
     }
-    #mobileMenu {
+  #mobileMenu {
   display: none;              /* Hidden by default */
   position: fixed;
   top: var(--nav-height);
@@ -207,7 +207,6 @@ header {
   color: transparent;
 }
 
- /* 🌫️ Help Center Button Styles */
 .help-btn {
   display: inline-block;
   background: transparent;
@@ -229,7 +228,7 @@ header {
   box-shadow: 0 0 10px rgba(160, 160, 160, 0.5);
   transform: translateY(-2px);
 }
-
+  
   </style>
   </head>
 <body>
@@ -248,7 +247,7 @@ header {
         <nav class="desktop">
           <a href="index.html">Home</a>
           <div class="dropdown">
-            <a href="services">Services ▾</a>
+            <a href="#services">Services ▾</a>
             <div class="dropdown-menu">
               <a href="internships.html">Internships</a>
               <a href="projects.html">Project Management</a>
@@ -277,317 +276,17 @@ header {
       <button class="mobile-dropbtn" onclick="toggleDropdown(event)">Services ▾</button>
       <div class="mobile-dropdown-content">
         <a href="internships.html" onclick="toggleMobile()">Internships</a>
-        <a href="projects.html" onclick="toggleMobile()">Project Management</a>
+        <a href="projects.html" onclick="toggleMobile()">Projects</a>
       </div>
     </div>
     <a href="about.html" onclick="toggleMobile()">About Us</a>
-    <a href="faqs.html" onclick="toggleMobile()">FAQs</a>
+    <a href="faqs.htm" onclick="toggleMobile()">FAQs</a>
     <a href="contact.html" onclick="toggleMobile()">Contact</a>
       <a href="internships.html" onclick="toggleMobile()">Get Started</a>
   </nav>
 </div>
 
-  <!-- MAIN CONTENT -->
-  <main>
-  
-    
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codyin | FAQs</title>
-  <style>
-    :root {
-      --primary: #007bff;
-      --secondary: #00d4ff;
-      --bg-dark: #0a0f1f;
-      --text-light: #e0e6ff;
-      --accent: #1e90ff;
-      --card-bg: #111933;
-      --gradient: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
-      overflow-x: hidden;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 80px 20px 40px;
-      background: radial-gradient(circle at top, #1a245a 0%, #0a0f1f 90%);
-      margin-top: 20px;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
-    }
-
-    .hero h2 {
-      font-size: 1.5rem;
-      margin: 15px 0 10px;
-      color: #b0c4ff;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-      color: #9ab3ff;
-      max-width: 700px;
-      margin: 10px auto 0;
-      line-height: 1.6;
-    }
-
-    .faq-section {
-      padding: 60px 8%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 50px;
-    }
-
-    .faq-column {
-      background: rgba(17, 25, 51, 0.8);
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0, 212, 255, 0.1);
-      padding: 30px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .faq-column:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 35px rgba(0, 212, 255, 0.2);
-    }
-
-    .faq-column h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .accordion {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .accordion-item {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .accordion-header {
-      background: none;
-      border: none;
-      outline: none;
-      width: 100%;
-      color: #fff;
-      text-align: left;
-      padding: 18px 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      position: relative;
-      font-weight: 500;
-      transition: 0.3s ease;
-    }
-
-    .accordion-header::after {
-      content: '+';
-      position: absolute;
-      right: 15px;
-      font-size: 1.5rem;
-      transition: transform 0.3s;
-    }
-
-    .accordion-header.active::after {
-      content: '−';
-      transform: rotate(180deg);
-      color: var(--secondary);
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      color: #b5c8ff;
-      line-height: 1.6;
-      font-size: 0.95rem;
-      transition: max-height 0.4s ease;
-      padding: 0 10px;
-    }
-
-    .accordion-content p {
-      margin: 10px 0 20px;
-    }
-
-    .accordion-content.show {
-      padding-top: 5px;
-      max-height: 400px;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 1.8rem; }
-      header h2 { font-size: 1rem; }
-      .faq-section { padding: 40px 5%; }
-      .faq-column { padding: 20px; }
-    }
-  </style>
-</head>
-<body>
-
-   <section class="hero">
-    <h1>Frequently Asked Questions</h1>
-    <h2>Everything You Need To Know</h2>
-    </section>
-  <section class="faq-section">
-    
-    
-
-    <!-- Column 2 -->
-    <div class="faq-column">
-      <h3>Application & Eligibility</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">How do I apply for an internship at MotionCut?</button>
-          <div class="accordion-content">
-            <p>You can apply directly through the official Codyin Internship page. Once submitted, you’ll receive onboarding details via email.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">What technical skills do I need before applying for an internship?</button>
-          <div class="accordion-content">
-            <p>No prior expertise needed! We provide structured projects to help you learn step by step.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Do you accept international applicants for your internships?</button>
-          <div class="accordion-content">
-            <p>Yes, we welcome applicants from all over the world! Our remote programs are accessible globally.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Are there specific application deadlines or do you have rolling admissions?</button>
-          <div class="accordion-content">
-            <p>Applications are open throughout the year. You can start your internship anytime that suits your schedule.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Is there an age or educational requirement to apply?</button>
-          <div class="accordion-content">
-            <p>Anyone with an interest in learning and growing their technical skills can join, regardless of age or degree.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Column 3 -->
-    <div class="faq-column">
-      <h3>Program Structure</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">What kind of projects will I work on during the internship?</button>
-          <div class="accordion-content">
-            <p>Each track includes 3–5 hands-on projects. For example, a Python internship might cover Emotion Detector, Web Scraper, and a Capstone project.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Are there different levels of internships available?</button>
-          <div class="accordion-content">
-            <p>Yes. Each internship offers beginner, intermediate, and advanced project levels to match your experience.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Can I switch my internship program after I start?</button>
-          <div class="accordion-content">
-            <p>Yes, you can switch your track within the first week by contacting support.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">How many hours per week should I dedicate to the internship?</button>
-          <div class="accordion-content">
-            <p>We recommend 5–10 hours per week to comfortably complete your projects within the chosen duration.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Column 4 -->
-    <div class="faq-column">
-      <h3>Fees & Payment</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">Is there a fee to participate in the MotionCut internships?</button>
-          <div class="accordion-content">
-            <p>Yes. Each program has a one-time enrollment fee covering platform access, certification, and project templates.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">What payment methods are accepted?</button>
-          <div class="accordion-content">
-            <p>We accept major debit/credit cards, UPI, and PayPal. Payment links are provided during registration.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Are there promo codes or discounts available?</button>
-          <div class="accordion-content">
-            <p>Yes! Keep an eye on our announcements and newsletters for special discount codes.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">What is the refund and cancellation policy?</button>
-          <div class="accordion-content">
-            <p>Refunds are available within 3 days of enrollment, provided no project access has been made.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Column 5 -->
-    
-
-    <!-- Column 6 -->
-    <div class="faq-column">
-      <h3>Completion & Outcomes</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <button class="accordion-header">What happens if I do not complete my internship project on time?</button>
-          <div class="accordion-content">
-            <p>You can extend your duration by contacting our support team. We aim to ensure every learner completes successfully.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">What needs to be completed to successfully finish the internship?</button>
-          <div class="accordion-content">
-            <p>You must complete all assigned projects and submit your work through the dashboard to receive your certificate.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">Can MotionCut guarantee employment after completion?</button>
-          <div class="accordion-content">
-            <p>While we can’t guarantee jobs, our internships build strong portfolios and skills that boost employability.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script>
-    const headers = document.querySelectorAll('.accordion-header');
-    headers.forEach(header => {
-      header.addEventListener('click', () => {
-        const open = document.querySelector('.accordion-header.active');
-        if (open && open !== header) {
-          open.classList.remove('active');
-          open.nextElementSibling.classList.remove('show');
-        }
-        header.classList.toggle('active');
-        header.nextElementSibling.classList.toggle('show');
-      });
-    });
-  </script>
+<main>
 
     </main>
   <!-- FOOTER -->
@@ -600,7 +299,7 @@ header {
             <div><strong style="font-size:14px">CODYIN</strong></div>
           </a>
         </div>
-        <div class="help-center" style="margin-top:10px">
+         <div class="help-center" style="margin-top:10px">
          <a href="contact.html"  class="help-btn">Help center</a>
         </div>
          <h4 style="margin-top:20px" class="muted">Follow Us</h4>
@@ -613,10 +312,10 @@ header {
 
       <div class="footer-links">
         <strong>Quick Links</strong>
-        <a href="#projects">About Us</a>
-        <a href="#projects">Projects</a>
+        <a href="about.html">About Us</a>
+        <a href="projects.html">Projects</a>
         <a href="internships.html">Internships</a>
-        <a href="#faqs">FAQs</a>
+        <a href="faqs.html">FAQs</a>
         <a href="contact.html">Contact</a>
       </div>
 

@@ -33,7 +33,7 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px}
     .logo-btn{display:flex;align-items:center;gap:10px;cursor:pointer}
-    .logo-img{width:46px;height:46px;border-radius:10px;overflow:hidden;background:var(--glass);display:flex;align-items:center;justify-content:center}
+    .logo-img{width:46px;height:46px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .brand h1{font-size:16px;margin:0;letter-spacing:0.6px}
     nav.desktop{display:flex;align-items:center;gap:18px}
     nav.desktop a{padding:8px 10px;border-radius:8px;font-weight:600;color:#dfe9ff;display:inline-block;text-decoration:none;position:relative}
@@ -239,7 +239,7 @@ header {
       <div class="nav-inner container">
         <div class="brand">
           <a class="logo-btn" href="index.html">
-            <div class="logo-img"><img src="logo.jpg" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
+            <div class="logo-img"><img src="logo.png" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
             <div><strong style="font-size:14px">CODYIN</strong></div>
           </a>
         </div>
@@ -323,7 +323,7 @@ header {
     /* Section 1 */
     .hero {
       text-align: center;
-      padding: 100px 20px 60px;
+      padding: 100px 20px 160px  ;
       background: linear-gradient(135deg, #0b0f19, #121b2f 70%);
       box-shadow: inset 0 0 80px rgba(0,183,255,0.1);
     }
@@ -336,19 +336,26 @@ header {
 
     .hero h2 span {
       color: var(--primary);
+      margin-bottom:20px;
       
     }
+     /* Remove any unwanted space or grey strip between sections */
+body {
+  background: #000; /* keep body black so no grey shows */
+}
 
-    /* Section 2 paragraph */
-    .intro {
-      max-width: 900px;
-      margin: 0 auto 70px;
-      text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #b5c7e6;
-      padding: 0 20px;
-    }
+.hero {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.internships {
+  margin-top: 0;
+  padding-top: 60px; /* optional - adjust for spacing look */
+  background-color: #000; /* ensure black background directly under hero */
+}
+
+    
 
     /* Internship Cards */
     .internships {
@@ -452,16 +459,9 @@ header {
   <section class="hero">
     <h1>Unlock Your Potential <br> Codyin Internships</h1>
     <h2><span>Project-Based, Self-Paced Learning for Real-World Success</span></h2>
+    
   </section>
 
-  <section class="intro">
-    At Codyin, we empower you to leap into your future with project-based internships that challenge you to apply your skills in real-world scenarios. 
-    Our self-paced learning environment allows you to explore and grow at your own rhythm, making your education as flexible as it is rigorous.
-  </section>
-   
-
-
-  
 
   <!-- internship Cards Section -->
   <section class="internships">
@@ -604,7 +604,7 @@ header {
       <li>We provide internship-cum-project for final year's</li>
     </ul>
 
-    <h2 data-aos="fade-up" data-aos-delay="400">Support Fee Includes</h2>
+    <h2 data-aos="fade-up" data-aos-delay="400">Program Contribution!</h2>
     <ul data-aos="fade-up" data-aos-delay="500">
       <li>Verified Certificate + Validation System</li>
       <li>Offer Letter + Admin Support</li>
@@ -796,7 +796,7 @@ drawStars();
       <div>
         <div class="brand">
           <a class="logo-btn" href="index.html">
-            <div class="logo-img"><img src="logo.jpg" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
+            <div class="logo-img"><img src="logo.png" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
             <div><strong style="font-size:14px">CODYIN</strong></div>
           </a>
         </div>
