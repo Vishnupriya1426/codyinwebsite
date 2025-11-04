@@ -1,0 +1,342 @@
+<style>
+  :root {
+    --bg-dark: #000814;
+    --card-bg: #0b1120;
+    --primary: #00B4FF;
+    --text-light: #E0E6FF;
+    --text-muted: #A5B5D6;
+    --gradient: linear-gradient(135deg, #00B4FF, #007BFF);
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    background: radial-gradient(circle at top, rgba(0,180,255,0.1), transparent 80%);
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+
+  .hero h2 {
+    font-size: 1.3rem;
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 70px 8%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop */
+    gap: 40px;
+  }
+
+  .faq-column {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+    border: 1px solid rgba(0, 180, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+  }
+
+  .faq-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(0, 180, 255, 0.2);
+    border-color: rgba(0, 180, 255, 0.3);
+  }
+
+  .faq-column h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Accordion */
+  .accordion {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: left;
+    color: var(--text-light);
+    padding: 18px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    transition: 0.3s ease;
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+
+  .accordion-header:hover {
+    color: var(--primary);
+    text-shadow: 0 0 6px rgba(0,180,255,0.6);
+  }
+
+  .accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-header.active::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 10px;
+  }
+
+  .accordion-content p {
+    margin: 10px 0 18px;
+  }
+
+  .accordion-content.show {
+    padding-top: 5px;
+    max-height: 400px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .faq-section {
+      padding: 60px 6%;
+      grid-template-columns: repeat(2, 1fr); /* still 2x2 for tablets */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 80px 20px 50px;
+    }
+    .hero h1 {
+      font-size: 2rem;
+    }
+    .hero h2 {
+      font-size: 1rem;
+    }
+    .faq-section {
+      padding: 50px 5%;
+      grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+    .faq-column {
+      padding: 24px;
+    }
+    .accordion-header {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 60px 16px 40px;
+    }
+    .hero h1 {
+      font-size: 1.6rem;
+    }
+    .hero h2 {
+      font-size: 0.9rem;
+    }
+    .faq-section {
+      padding: 40px 4%;
+    }
+    .faq-column {
+      padding: 18px;
+    }
+    .accordion-header {
+      font-size: 0.9rem;
+      padding: 14px 8px;
+    }
+    .accordion-header::after {
+      right: 10px;
+      font-size: 1.3rem;
+    }
+  }
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Frequently Asked Questions</h1>
+  <h2>Everything You Need To Know</h2>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+   <section class="faq-section">
+    <div class="faq-column">
+      <h3>Application & Eligibility</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">How do I apply for an internship at Codyin?</button>
+          <div class="accordion-content">
+            <p>You can apply directly through the official Codyin Internship page. Once submitted, you’ll receive onboarding details via email.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What technical skills do I need before applying?</button>
+          <div class="accordion-content">
+            <p>No prior expertise needed! We provide structured projects to help you learn step by step.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Do you accept international applicants?</button>
+          <div class="accordion-content">
+            <p>Yes, we welcome applicants from all over the world! Our remote programs are accessible globally.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Are there specific deadlines?</button>
+          <div class="accordion-content">
+            <p>Applications are open throughout the year. You can start your internship anytime that suits your schedule.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Is there an age or education requirement?</button>
+          <div class="accordion-content">
+            <p>Anyone with an interest in learning and growing technical skills can join, regardless of age or degree.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-column">
+      <h3>Program Structure</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">What kind of projects will I work on?</button>
+          <div class="accordion-content">
+            <p>Each track includes 3–5 hands-on projects, such as Emotion Detector, Web Scraper, and Capstone project for Python interns.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Are there levels available?</button>
+          <div class="accordion-content">
+            <p>Yes. Each internship offers beginner, intermediate, and advanced project levels.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Can I switch programs after I start?</button>
+          <div class="accordion-content">
+            <p>Yes, you can switch your track within the first week by contacting support.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How many hours should I dedicate?</button>
+          <div class="accordion-content">
+            <p>We recommend 5–10 hours per week to comfortably complete your projects within the duration.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-column">
+      <h3>Fees & Payment</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">Is there a fee for internships?</button>
+          <div class="accordion-content">
+            <p>Yes. Each program has a one-time enrollment fee covering platform access, certification, and project templates.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What payment methods are accepted?</button>
+          <div class="accordion-content">
+            <p>We accept major debit/credit cards, UPI, and PayPal. Payment links are provided during registration.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Are discounts available?</button>
+          <div class="accordion-content">
+            <p>Yes! Keep an eye on our announcements and newsletters for special discount codes.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">What is the refund policy?</button>
+          <div class="accordion-content">
+            <p>Refunds are available within 3 days of enrollment, provided no project access has been made.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-column">
+      <h3>Completion & Outcomes</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">What if I don’t finish on time?</button>
+          <div class="accordion-content">
+            <p>You can extend your duration by contacting our support team. We ensure every learner completes successfully.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">How to complete the internship?</button>
+          <div class="accordion-content">
+            <p>Complete all assigned projects and submit your work through the dashboard to receive your certificate.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">Does Codyin guarantee jobs?</button>
+          <div class="accordion-content">
+            <p>While we don’t guarantee jobs, our internships help you build a strong portfolio and skills that boost employability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</section>
+
+<script>
+  const headers = document.querySelectorAll('.accordion-header');
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const open = document.querySelector('.accordion-header.active');
+      if (open && open !== header) {
+        open.classList.remove('active');
+        open.nextElementSibling.classList.remove('show');
+      }
+      header.classList.toggle('active');
+      header.nextElementSibling.classList.toggle('show');
+    });
+  });
+</script>

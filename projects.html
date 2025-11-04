@@ -512,11 +512,13 @@ header {
     .intro-text h1 {
       font-size:2rem;
       color: var(--primary);
+      text-align: center;
     }
     .intro-text p {
       margin-top:1rem;
       font-size:1.1rem;
       line-height:1.6;
+      text-align: center;
     }
    
     /* ===========================
@@ -600,36 +602,85 @@ header {
     /* ===========================
        DOMAINS SECTION
     =========================== */
-    .domains-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      margin-top:40px;
-    }
-    .domain-box {
-      background:linear-gradient(135deg, #007bff55, #00ffff33);
-      border-radius:16px;
-      padding:25px 20px;
-      text-align:center;
-      transition:all .4s ease;
-      opacity:0;
-      transform:translateY(40px);
-      animation:fadeUp 1s forwards;
-    }
-    .domain-box:nth-child(odd){ animation-delay:.2s; }
-    .domain-box:nth-child(even){ animation-delay:.4s; }
-    @keyframes fadeUp {
-      to { opacity:1; transform:translateY(0); }
-    }
-    .domain-box:hover {
-      background: linear-gradient(135deg, #007bff55, #00ffff33);
-      box-shadow:0 0 25px rgba(0,255,255,0.2);
-      transform:translateY(-8px);
-    }
-    .domain-box h3 {
-      color:var(--primary);
-      margin-bottom:10px;
-    }
+   
+
+
+/* ===========================
+   DOMAINS SECTION
+=========================== */
+.domains-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.domain-box {
+  background: linear-gradient(135deg, #007bff22, #00ffff11);
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: all .4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s forwards;
+}
+
+.domain-box:nth-child(odd){ animation-delay:.2s; }
+.domain-box:nth-child(even){ animation-delay:.4s; }
+
+@keyframes fadeUp {
+  to { opacity:1; transform:translateY(0); }
+}
+
+.domain-box:hover {
+  background: linear-gradient(135deg, #007bff33, #00ffff22);
+  box-shadow: 0 0 25px rgba(0,255,255,0.2);
+  transform: translateY(-8px);
+}
+
+.domain-box h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.domain-box p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   ICON STYLES
+=========================== */
+.domain-box .icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(0,255,255,0.3));
+}
+
+.domain-box:hover .icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 12px rgba(0,255,255,0.6));
+}
+
+/* Color Variants */
+.icon.blue { color: #007BFF; }
+.icon.cyan { color: #00E5FF; }
+.icon.purple { color: #A855F7; }
+.icon.teal { color: #14B8A6; }
+.icon.pink { color: #EC4899; }
+.icon.orange { color: #F97316; }
+.icon.green { color: #22C55E; }
+.icon.yellow { color: #EAB308; }
+.icon.indigo { color: #6366F1; }
+.icon.red { color: #EF4444; }
+.icon.sky { color: #0EA5E9; }
+.icon.violet { color: #A855F7; }
+
+
 
     /* ===========================
        ROADMAP SECTION
@@ -946,31 +997,40 @@ header {
   <section id="stats">
     <h2>Empowering Innovation Through Results</h2>
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-number" data-target="600">0</div><div class="stat-text">Projects+</div></div>
-      <div class="stat-card"><div class="stat-number" data-target="50">0</div><div class="stat-text">Skills+</div></div>
-      <div class="stat-card"><div class="stat-number" data-target="400">0</div><div class="stat-text">Students+</div></div>
-      <div class="stat-card"><div class="stat-number" data-target="250">0</div><div class="stat-text">Clients+</div></div>
+      <div class="stat-card"><div class="stat-number" data-target="600">0</div><div class="stat-text">Projects</div></div>
+      <div class="stat-card"><div class="stat-number" data-target="50">0</div><div class="stat-text">Skills</div></div>
+      <div class="stat-card"><div class="stat-number" data-target="400">0</div><div class="stat-text">Students</div></div>
+      <div class="stat-card"><div class="stat-number" data-target="250">0</div><div class="stat-text">Clients</div></div>
     </div>
   </section>
 
   <!-- 3️⃣ Domains -->
-  <section>
-    <h2>Project Domains</h2>
-    <div class="domains-grid">
-      <div class="domain-box"><h3>Web Development</h3><p>Modern responsive websites and web apps.</p></div>
-      <div class="domain-box"><h3>App Development</h3><p>Cross-platform apps with modern frameworks.</p></div>
-      <div class="domain-box"><h3>AI & ML</h3><p>AI-driven solutions and ML models.</p></div>
-      <div class="domain-box"><h3>NLP</h3><P></P>Language processing and chatbot systems.</div>
-      <div class="domain-box"><h3>Deep Learning</h3><P>Neural networks for real world use cases</P></div>
-      <div class="domain-box"><h3>Python & Java</h3><p>Core programming and automation.</p></div>
-      <div class="domain-box"><h3>Blockchain</h3><p>Smart contracts & decentralized systems.</p></div>
-      <div class="domain-box"><h3>UI/UX Design</h3><p>Creative design systems for real projects.</p></div>
-      <div class="domain-box"><h3>Data Science</h3><p>Data analysis and visualization projects.</p></div>
-      <div class="domain-box"><h3>Cybersecurity</h3><p>Security assessments and ethical hacking.</p></div>
-      <div class="domain-box"><h3>Cloud Computing</h3><p>Cloud infrastructure and services.</p></div>
-      <div class="domain-box"><h3>Digital Marketing</h3><p>SEO, social media, and content marketing.</p></div>
-    </div>
-  </section>
+   <!-- ✅ Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- 3️⃣ Domains -->
+<section>
+  <h2>Project Domains</h2>
+  <div class="domains-grid">
+    <div class="domain-box"><i data-lucide="globe" class="icon blue"></i><h3>Web Development</h3><p>Modern responsive websites and web apps.</p></div>
+    <div class="domain-box"><i data-lucide="smartphone" class="icon cyan"></i><h3>App Development</h3><p>Cross-platform apps with modern frameworks.</p></div>
+    <div class="domain-box"><i data-lucide="cpu" class="icon purple"></i><h3>AI & ML</h3><p>AI-driven solutions and ML models.</p></div>
+    <div class="domain-box"><i data-lucide="message-square" class="icon teal"></i><h3>NLP</h3><p>Language processing and chatbot systems.</p></div>
+    <div class="domain-box"><i data-lucide="brain" class="icon pink"></i><h3>Deep Learning</h3><p>Neural networks for real-world use cases.</p></div>
+    <div class="domain-box"><i data-lucide="code" class="icon orange"></i><h3>Python & Java</h3><p>Core programming and automation.</p></div>
+    <div class="domain-box"><i data-lucide="link" class="icon green"></i><h3>Blockchain</h3><p>Smart contracts & decentralized systems.</p></div>
+    <div class="domain-box"><i data-lucide="palette" class="icon yellow"></i><h3>UI/UX Design</h3><p>Creative design systems for real projects.</p></div>
+    <div class="domain-box"><i data-lucide="bar-chart-3" class="icon indigo"></i><h3>Data Science</h3><p>Data analysis and visualization projects.</p></div>
+    <div class="domain-box"><i data-lucide="shield" class="icon red"></i><h3>Cybersecurity</h3><p>Security assessments and ethical hacking.</p></div>
+    <div class="domain-box"><i data-lucide="cloud" class="icon sky"></i><h3>Cloud Computing</h3><p>Cloud infrastructure and services.</p></div>
+    <div class="domain-box"><i data-lucide="megaphone" class="icon violet"></i><h3>Digital Marketing</h3><p>SEO, social media, and content marketing.</p></div>
+  </div>
+</section>
+
+<script>
+  lucide.createIcons();
+</script>
+
 
   <!-- 4️⃣ Roadmap -->
   <section>
@@ -1293,7 +1353,7 @@ header {
     setTimeout(() => {
       loader.classList.add("fade-out");
       document.body.classList.add("loaded");
-    }, 1000);
+    }, 2000);
   });
 </script>
 <!-- ================== END LOADER ================== -->

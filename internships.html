@@ -609,6 +609,60 @@ body {
     .enroll-btn:hover {
       box-shadow: 0 0 25px rgba(0,183,255,0.6);
     }
+    /* Responsive Grid for Internship Cards */
+@media (max-width: 1200px) {
+  .internships {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px 30px 80px;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 992px) {
+  .internships {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 25px 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .internships {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .internships {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px 20px 60px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 25px 18px;
+  }
+
+  .card img {
+    width: 50px;
+  }
+
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .learn, .details, ul, .best {
+    font-size: 0.9rem;
+  }
+
+  .enroll-btn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
 
     
   </style>
@@ -620,7 +674,7 @@ body {
     <h1><span>Empower Your Future</span> with Codyin Internships</h1>
     <h2>Hands-on, <span>AI-Driven Learning</span> to Build Real-World Skills</h2>
     <p>Step into a world of innovation. Learn, create, and grow through immersive, project-based internships — guided by experts and powered by technology.</p>
-    <a href="#internships" class="internship-btn">Explore Internships</a>
+    <a href="internships" class="internship-btn">Explore Internships</a>
   </div>
 </section>
 
@@ -1302,7 +1356,7 @@ drawStars();
     setTimeout(() => {
       loader.classList.add("fade-out");
       document.body.classList.add("loaded");
-    }, 1000);
+    }, 2000);
   });
 </script>
 <!-- ================== END LOADER ================== -->
