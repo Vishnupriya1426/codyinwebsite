@@ -7,6 +7,163 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+
+   /* ======== RESET ======== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  body.loaded {
+    overflow: auto;
+  }
+
+  /* ======== LOADER CONTAINER ======== */
+  #codyin-loader {
+    position: fixed;
+    inset: 0;
+    background: #0b0c10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 1s ease, visibility 1s ease;
+  }
+
+  #codyin-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* ======== CONTENT WRAPPER ======== */
+  .loader-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;   /* decreased from 120px */
+    height: 80px;  /* decreased from 120px */
+  }
+
+  /* ======== ARROW CIRCLE ======== */
+  .arrow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;   /* decreased from 100px */
+    height: 60px;  /* decreased from 100px */
+    transform: translate(-50%, -50%);
+    animation: spin 2.5s linear infinite;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;   /* slightly smaller */
+    height: 5px;
+    background: linear-gradient(90deg, #00bfff, #007bff);
+    clip-path: polygon(0 50%, 60% 0, 100% 50%, 60% 100%);
+    transform-origin: -22px center;  /* adjusted for smaller ring */
+    filter: drop-shadow(0 0 4px #00c3ff);
+    opacity: 0.9;
+  }
+
+  /* Position arrows in circle */
+  .arrow:nth-child(1) { transform: rotate(0deg) translateX(30px); }
+  .arrow:nth-child(2) { transform: rotate(45deg) translateX(30px); }
+  .arrow:nth-child(3) { transform: rotate(90deg) translateX(30px); }
+  .arrow:nth-child(4) { transform: rotate(135deg) translateX(30px); }
+  .arrow:nth-child(5) { transform: rotate(180deg) translateX(30px); }
+  .arrow:nth-child(6) { transform: rotate(225deg) translateX(30px); }
+  .arrow:nth-child(7) { transform: rotate(270deg) translateX(30px); }
+  .arrow:nth-child(8) { transform: rotate(315deg) translateX(30px); }
+
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    80% { transform: translate(-50%, -50%) rotate(720deg) scale(0.85); }
+    100% { transform: translate(-50%, -50%) rotate(1080deg) scale(0); }
+  }
+
+  /* ======== LOGO CENTER ======== */
+  .logo-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;   /* slightly smaller */
+    height: auto;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    animation: logoReveal 3s ease forwards;
+    animation-delay: 2.2s;
+  }
+
+  @keyframes logoReveal {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(-20deg); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(0deg); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  }
+
+  /* ======== RESPONSIVE ======== */
+  @media (max-width: 768px) {
+    .loader-content {
+      width: 90px;
+      height: 90px;
+    }
+    .arrow-circle {
+      width: 70px;
+      height: 70px;
+    }
+    .arrow {
+      width: 10px;
+      height: 5px;
+      transform-origin: -20px center;
+    }
+    .arrow:nth-child(1) { transform: rotate(0deg) translateX(28px); }
+    .arrow:nth-child(2) { transform: rotate(45deg) translateX(28px); }
+    .arrow:nth-child(3) { transform: rotate(90deg) translateX(28px); }
+    .arrow:nth-child(4) { transform: rotate(135deg) translateX(28px); }
+    .arrow:nth-child(5) { transform: rotate(180deg) translateX(28px); }
+    .arrow:nth-child(6) { transform: rotate(225deg) translateX(28px); }
+    .arrow:nth-child(7) { transform: rotate(270deg) translateX(28px); }
+    .arrow:nth-child(8) { transform: rotate(315deg) translateX(28px); }
+    .logo-center {
+      width: 45px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .loader-content {
+      width: 70px;
+      height: 70px;
+    }
+    .arrow-circle {
+      width: 55px;
+      height: 55px;
+    }
+    .arrow {
+      width: 8px;
+      height: 4px;
+      transform-origin: -15px center;
+    }
+    .arrow:nth-child(1) { transform: rotate(0deg) translateX(22px); }
+    .arrow:nth-child(2) { transform: rotate(45deg) translateX(22px); }
+    .arrow:nth-child(3) { transform: rotate(90deg) translateX(22px); }
+    .arrow:nth-child(4) { transform: rotate(135deg) translateX(22px); }
+    .arrow:nth-child(5) { transform: rotate(180deg) translateX(22px); }
+    .arrow:nth-child(6) { transform: rotate(225deg) translateX(22px); }
+    .arrow:nth-child(7) { transform: rotate(270deg) translateX(22px); }
+    .arrow:nth-child(8) { transform: rotate(315deg) translateX(22px); }
+    .logo-center {
+      width: 38px;
+    }
+  }
+  
     :root{
       --bg:#070912;
       --panel:#0f1721;
@@ -233,6 +390,25 @@ header {
   </style>
   </head>
 <body>
+  
+  <!-- ================== CODYIN PREMIUM PAGE LOADER ================== -->
+<div id="codyin-loader">
+  <div class="loader-content">
+    <div class="arrow-circle">
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+    </div>
+    <img src="logo.png" alt="Codyin Logo" class="logo-center" />
+  </div>
+</div>
+
+
 
   <!-- HEADER / NAVBAR -->
   <header>
@@ -248,7 +424,7 @@ header {
         <nav class="desktop">
           <a href="index.html">Home</a>
           <div class="dropdown">
-            <a href="services">Services ▾</a>
+            <a href="#">Services ▾</a>
             <div class="dropdown-menu">
               <a href="internships.html">Internships</a>
               <a href="projects.html">Project Management</a>
@@ -290,20 +466,18 @@ header {
   <!-- MAIN CONTENT -->
   <main>
   
-    
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Codyin | FAQs</title>
   <style>
     :root {
-      --primary: #007bff;
-      --secondary: #00d4ff;
-      --bg-dark: #0a0f1f;
-      --text-light: #e0e6ff;
-      --accent: #1e90ff;
-      --card-bg: #111933;
-      --gradient: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+      --bg-dark: #000814;
+      --card-bg: #0b1120;
+      --primary: #00B4FF;
+      --text-light: #E0E6FF;
+      --text-muted: #A5B5D6;
+      --gradient: linear-gradient(135deg, #00B4FF, #007BFF);
     }
 
     body {
@@ -314,80 +488,79 @@ header {
       overflow-x: hidden;
     }
 
+    /* Hero Section */
     .hero {
       text-align: center;
-      padding: 80px 20px 40px;
-      background: radial-gradient(circle at top, #1a245a 0%, #0a0f1f 90%);
-      margin-top: 20px;
+      padding: 100px 20px 60px;
+      background: radial-gradient(circle at top, rgba(0,180,255,0.1), transparent 80%);
     }
 
     .hero h1 {
-      font-size: 2rem;
+      font-size: 2.4rem;
       background: var(--gradient);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       margin: 0;
+      letter-spacing: 1px;
+      font-weight: 600;
     }
 
     .hero h2 {
-      font-size: 1.5rem;
-      margin: 15px 0 10px;
-      color: #b0c4ff;
-    }
-  
-    .hero p {
-      font-size: 1rem;
-      color: #9ab3ff;
-      max-width: 700px;
-      margin: 10px auto 0;
-      line-height: 1.6;
+      font-size: 1.3rem;
+      margin-top: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
+    /* FAQ Section */
     .faq-section {
-      padding: 60px 8%;
+      padding: 70px 10%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
     }
 
     .faq-column {
-      background: rgba(17, 25, 51, 0.8);
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0, 212, 255, 0.1);
+      background: var(--card-bg);
+      border-radius: 18px;
       padding: 30px;
-      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+      border: 1px solid rgba(0, 180, 255, 0.1);
       transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
     }
 
     .faq-column:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 35px rgba(0, 212, 255, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px rgba(0, 180, 255, 0.2);
+      border-color: rgba(0, 180, 255, 0.3);
     }
 
     .faq-column h3 {
-      color: var(--secondary);
-      margin-bottom: 20px;
-      font-size: 1.4rem;
-      letter-spacing: 1px;
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 15px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
+    /* Accordion */
     .accordion {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .accordion-item {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .accordion-header {
+      width: 100%;
       background: none;
       border: none;
       outline: none;
-      width: 100%;
-      color: #fff;
       text-align: left;
+      color: var(--text-light);
       padding: 18px 10px;
       font-size: 1rem;
       cursor: pointer;
@@ -396,32 +569,37 @@ header {
       transition: 0.3s ease;
     }
 
+    .accordion-header:hover {
+      color: var(--primary);
+      text-shadow: 0 0 6px rgba(0,180,255,0.6);
+    }
+
     .accordion-header::after {
       content: '+';
       position: absolute;
       right: 15px;
       font-size: 1.5rem;
-      transition: transform 0.3s;
+      color: var(--primary);
+      transition: transform 0.3s ease;
     }
 
     .accordion-header.active::after {
       content: '−';
       transform: rotate(180deg);
-      color: var(--secondary);
     }
 
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      color: #b5c8ff;
-      line-height: 1.6;
+      color: var(--text-muted);
+      line-height: 1.7;
       font-size: 0.95rem;
       transition: max-height 0.4s ease;
       padding: 0 10px;
     }
 
     .accordion-content p {
-      margin: 10px 0 20px;
+      margin: 10px 0 18px;
     }
 
     .accordion-content.show {
@@ -429,98 +607,107 @@ header {
       max-height: 400px;
     }
 
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .faq-section { padding: 60px 8%; }
+    }
+
     @media (max-width: 768px) {
-      header h1 { font-size: 1.8rem; }
-      header h2 { font-size: 1rem; }
-      .faq-section { padding: 40px 5%; }
-      .faq-column { padding: 20px; }
+      .hero h1 { font-size: 2rem; }
+      .hero h2 { font-size: 1rem; }
+      .faq-section { padding: 40px 6%; }
+      .faq-column { padding: 22px; }
+      .accordion-header { font-size: 0.95rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero h2 { font-size: 0.9rem; }
+      .faq-column { padding: 18px; }
     }
   </style>
 </head>
 <body>
 
-   <section class="hero">
+  <!-- HERO -->
+  <section class="hero">
     <h1>Frequently Asked Questions</h1>
     <h2>Everything You Need To Know</h2>
-    </section>
-  <section class="faq-section">
-    
-    
+  </section>
 
-    <!-- Column 2 -->
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
     <div class="faq-column">
       <h3>Application & Eligibility</h3>
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-header">How do I apply for an internship at MotionCut?</button>
+          <button class="accordion-header">How do I apply for an internship at Codyin?</button>
           <div class="accordion-content">
             <p>You can apply directly through the official Codyin Internship page. Once submitted, you’ll receive onboarding details via email.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">What technical skills do I need before applying for an internship?</button>
+          <button class="accordion-header">What technical skills do I need before applying?</button>
           <div class="accordion-content">
             <p>No prior expertise needed! We provide structured projects to help you learn step by step.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Do you accept international applicants for your internships?</button>
+          <button class="accordion-header">Do you accept international applicants?</button>
           <div class="accordion-content">
             <p>Yes, we welcome applicants from all over the world! Our remote programs are accessible globally.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Are there specific application deadlines or do you have rolling admissions?</button>
+          <button class="accordion-header">Are there specific deadlines?</button>
           <div class="accordion-content">
             <p>Applications are open throughout the year. You can start your internship anytime that suits your schedule.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Is there an age or educational requirement to apply?</button>
+          <button class="accordion-header">Is there an age or education requirement?</button>
           <div class="accordion-content">
-            <p>Anyone with an interest in learning and growing their technical skills can join, regardless of age or degree.</p>
+            <p>Anyone with an interest in learning and growing technical skills can join, regardless of age or degree.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Column 3 -->
     <div class="faq-column">
       <h3>Program Structure</h3>
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-header">What kind of projects will I work on during the internship?</button>
+          <button class="accordion-header">What kind of projects will I work on?</button>
           <div class="accordion-content">
-            <p>Each track includes 3–5 hands-on projects. For example, a Python internship might cover Emotion Detector, Web Scraper, and a Capstone project.</p>
+            <p>Each track includes 3–5 hands-on projects, such as Emotion Detector, Web Scraper, and Capstone project for Python interns.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Are there different levels of internships available?</button>
+          <button class="accordion-header">Are there levels available?</button>
           <div class="accordion-content">
-            <p>Yes. Each internship offers beginner, intermediate, and advanced project levels to match your experience.</p>
+            <p>Yes. Each internship offers beginner, intermediate, and advanced project levels.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Can I switch my internship program after I start?</button>
+          <button class="accordion-header">Can I switch programs after I start?</button>
           <div class="accordion-content">
             <p>Yes, you can switch your track within the first week by contacting support.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">How many hours per week should I dedicate to the internship?</button>
+          <button class="accordion-header">How many hours should I dedicate?</button>
           <div class="accordion-content">
-            <p>We recommend 5–10 hours per week to comfortably complete your projects within the chosen duration.</p>
+            <p>We recommend 5–10 hours per week to comfortably complete your projects within the duration.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Column 4 -->
     <div class="faq-column">
       <h3>Fees & Payment</h3>
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-header">Is there a fee to participate in the MotionCut internships?</button>
+          <button class="accordion-header">Is there a fee for internships?</button>
           <div class="accordion-content">
             <p>Yes. Each program has a one-time enrollment fee covering platform access, certification, and project templates.</p>
           </div>
@@ -532,13 +719,13 @@ header {
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Are there promo codes or discounts available?</button>
+          <button class="accordion-header">Are discounts available?</button>
           <div class="accordion-content">
             <p>Yes! Keep an eye on our announcements and newsletters for special discount codes.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">What is the refund and cancellation policy?</button>
+          <button class="accordion-header">What is the refund policy?</button>
           <div class="accordion-content">
             <p>Refunds are available within 3 days of enrollment, provided no project access has been made.</p>
           </div>
@@ -546,34 +733,31 @@ header {
       </div>
     </div>
 
-    <!-- Column 5 -->
-    
-
-    <!-- Column 6 -->
     <div class="faq-column">
       <h3>Completion & Outcomes</h3>
       <div class="accordion">
         <div class="accordion-item">
-          <button class="accordion-header">What happens if I do not complete my internship project on time?</button>
+          <button class="accordion-header">What if I don’t finish on time?</button>
           <div class="accordion-content">
-            <p>You can extend your duration by contacting our support team. We aim to ensure every learner completes successfully.</p>
+            <p>You can extend your duration by contacting our support team. We ensure every learner completes successfully.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">What needs to be completed to successfully finish the internship?</button>
+          <button class="accordion-header">How to complete the internship?</button>
           <div class="accordion-content">
-            <p>You must complete all assigned projects and submit your work through the dashboard to receive your certificate.</p>
+            <p>Complete all assigned projects and submit your work through the dashboard to receive your certificate.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <button class="accordion-header">Can MotionCut guarantee employment after completion?</button>
+          <button class="accordion-header">Does Codyin guarantee jobs?</button>
           <div class="accordion-content">
-            <p>While we can’t guarantee jobs, our internships build strong portfolios and skills that boost employability.</p>
+            <p>While we don’t guarantee jobs, our internships help you build a strong portfolio and skills that boost employability.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
   <script>
     const headers = document.querySelectorAll('.accordion-header');
     headers.forEach(header => {
@@ -613,28 +797,28 @@ header {
 
       <div class="footer-links">
         <strong>Quick Links</strong>
-        <a href="#projects">About Us</a>
-        <a href="#projects">Projects</a>
+        <a href="about.html">About Us</a>
+        <a href="projects.html">Projects</a>
         <a href="internships.html">Internships</a>
-        <a href="#faqs">FAQs</a>
+        <a href="faqs.html">FAQs</a>
         <a href="contact.html">Contact</a>
       </div>
 
       <div class="footer-links">
         <strong>Programs</strong>
-        <a href="#">Python Programming</a>
-        <a href="#">Web Development</a>
-        <a href="#">Java Programming</a>
-        <a href="#">Frontend Development</a>
-        <a href="#">UI/UX Design</a>
-        <a href="#">C Programming</a>
+        <a href="internships.html">Python Programming</a>
+        <a href="internships.html">Web Development</a>
+        <a href="internships.html">Java Programming</a>
+        <a href="internships.html">Frontend Development</a>
+        <a href="internships.html">UI/UX Design</a>
+        <a href="internships.html">C Programming</a>
       </div>
 
       <div class="footer-links">
         <strong>Legal</strong>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Refund Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
       </div>
     </div>
     <div class="divider"></div>
@@ -693,5 +877,124 @@ header {
 
 
 </script>
+<!-- 🚀 Scroll Progress Button (Desktop Only) -->
+<div id="scrollProgress">
+  <svg class="progress-circle" width="60" height="60">
+    <circle class="bg" cx="30" cy="30" r="26"></circle>
+    <circle class="progress" cx="30" cy="30" r="26"></circle>
+  </svg>
+</div>
+
+<style>
+  /* ========== SCROLL PROGRESS BUTTON (CODYIN THEME - DESKTOP ONLY) ========== */
+  #scrollProgress {
+    position: fixed;
+    bottom: 35px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 180, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  #scrollProgress.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .progress-circle {
+    transform: rotate(-90deg);
+  }
+
+  .progress-circle circle {
+    fill: none;
+    stroke-width: 4;
+    cx: 30;
+    cy: 30;
+    r: 26;
+  }
+
+  .progress-circle .bg {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-circle .progress {
+    stroke: url(#grad);
+    stroke-linecap: round;
+    stroke-dasharray: 163.36; /* 2 * π * 26 */
+    stroke-dashoffset: 163.36;
+    transition: stroke-dashoffset 0.2s ease;
+  }
+
+  /* ✅ Hide Scroll Progress on Mobile Devices */
+  @media (max-width: 992px) {
+    #scrollProgress {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // ✅ Scroll Progress Functionality (Desktop Only)
+  const scrollBtn = document.getElementById("scrollProgress");
+  const progressCircle = document.querySelector(".progress-circle .progress");
+  const circumference = 2 * Math.PI * 26;
+  progressCircle.style.strokeDasharray = circumference;
+
+  // Add gradient dynamically
+  const svg = document.querySelector(".progress-circle");
+  const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  defs.innerHTML = `
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4FF"/>
+      <stop offset="100%" stop-color="#007BFF"/>
+    </linearGradient>`;
+  svg.prepend(defs);
+
+  // Scroll progress + visibility (desktop only)
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 992) return; // disable for mobile & tablets
+
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollTop / docHeight;
+    const offset = circumference - progress * circumference;
+
+    progressCircle.style.strokeDashoffset = offset;
+
+    if (scrollTop > 300) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  // Smooth scroll to top
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+ <script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("codyin-loader");
+    setTimeout(() => {
+      loader.classList.add("fade-out");
+      document.body.classList.add("loaded");
+    }, 1000);
+  });
+</script>
+<!-- ================== END LOADER ================== -->
+
 </body>
 </html>

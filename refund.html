@@ -7,6 +7,165 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
+
+
+     /* ======== RESET ======== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  body.loaded {
+    overflow: auto;
+  }
+
+  /* ======== LOADER CONTAINER ======== */
+  #codyin-loader {
+    position: fixed;
+    inset: 0;
+    background: #0b0c10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    transition: opacity 1s ease, visibility 1s ease;
+  }
+
+  #codyin-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* ======== CONTENT WRAPPER ======== */
+  .loader-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;   /* decreased from 120px */
+    height: 80px;  /* decreased from 120px */
+  }
+
+  /* ======== ARROW CIRCLE ======== */
+  .arrow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;   /* decreased from 100px */
+    height: 60px;  /* decreased from 100px */
+    transform: translate(-50%, -50%);
+    animation: spin 2.5s linear infinite;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;   /* slightly smaller */
+    height: 5px;
+    background: linear-gradient(90deg, #00bfff, #007bff);
+    clip-path: polygon(0 50%, 60% 0, 100% 50%, 60% 100%);
+    transform-origin: -22px center;  /* adjusted for smaller ring */
+    filter: drop-shadow(0 0 4px #00c3ff);
+    opacity: 0.9;
+  }
+
+  /* Position arrows in circle */
+  .arrow:nth-child(1) { transform: rotate(0deg) translateX(30px); }
+  .arrow:nth-child(2) { transform: rotate(45deg) translateX(30px); }
+  .arrow:nth-child(3) { transform: rotate(90deg) translateX(30px); }
+  .arrow:nth-child(4) { transform: rotate(135deg) translateX(30px); }
+  .arrow:nth-child(5) { transform: rotate(180deg) translateX(30px); }
+  .arrow:nth-child(6) { transform: rotate(225deg) translateX(30px); }
+  .arrow:nth-child(7) { transform: rotate(270deg) translateX(30px); }
+  .arrow:nth-child(8) { transform: rotate(315deg) translateX(30px); }
+
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    80% { transform: translate(-50%, -50%) rotate(720deg) scale(0.85); }
+    100% { transform: translate(-50%, -50%) rotate(1080deg) scale(0); }
+  }
+
+  /* ======== LOGO CENTER ======== */
+  .logo-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;   /* slightly smaller */
+    height: auto;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    animation: logoReveal 3s ease forwards;
+    animation-delay: 2.2s;
+  }
+
+  @keyframes logoReveal {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(-20deg); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.05) rotate(0deg); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  }
+
+  /* ======== RESPONSIVE ======== */
+  @media (max-width: 768px) {
+    .loader-content {
+      width: 90px;
+      height: 90px;
+    }
+    .arrow-circle {
+      width: 70px;
+      height: 70px;
+    }
+    .arrow {
+      width: 10px;
+      height: 5px;
+      transform-origin: -20px center;
+    }
+    .arrow:nth-child(1) { transform: rotate(0deg) translateX(28px); }
+    .arrow:nth-child(2) { transform: rotate(45deg) translateX(28px); }
+    .arrow:nth-child(3) { transform: rotate(90deg) translateX(28px); }
+    .arrow:nth-child(4) { transform: rotate(135deg) translateX(28px); }
+    .arrow:nth-child(5) { transform: rotate(180deg) translateX(28px); }
+    .arrow:nth-child(6) { transform: rotate(225deg) translateX(28px); }
+    .arrow:nth-child(7) { transform: rotate(270deg) translateX(28px); }
+    .arrow:nth-child(8) { transform: rotate(315deg) translateX(28px); }
+    .logo-center {
+      width: 45px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .loader-content {
+      width: 70px;
+      height: 70px;
+    }
+    .arrow-circle {
+      width: 55px;
+      height: 55px;
+    }
+    .arrow {
+      width: 8px;
+      height: 4px;
+      transform-origin: -15px center;
+    }
+    .arrow:nth-child(1) { transform: rotate(0deg) translateX(22px); }
+    .arrow:nth-child(2) { transform: rotate(45deg) translateX(22px); }
+    .arrow:nth-child(3) { transform: rotate(90deg) translateX(22px); }
+    .arrow:nth-child(4) { transform: rotate(135deg) translateX(22px); }
+    .arrow:nth-child(5) { transform: rotate(180deg) translateX(22px); }
+    .arrow:nth-child(6) { transform: rotate(225deg) translateX(22px); }
+    .arrow:nth-child(7) { transform: rotate(270deg) translateX(22px); }
+    .arrow:nth-child(8) { transform: rotate(315deg) translateX(22px); }
+    .logo-center {
+      width: 38px;
+    }
+  }
+
+
     :root{
       --bg:#070912;
       --panel:#0f1721;
@@ -299,6 +458,22 @@ header {
 </style>
 </head>
 <body>
+  <!-- ================== CODYIN PREMIUM PAGE LOADER ================== -->
+<div id="codyin-loader">
+  <div class="loader-content">
+    <div class="arrow-circle">
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+      <div class="arrow"></div>
+    </div>
+    <img src="logo.png" alt="Codyin Logo" class="logo-center" />
+  </div>
+</div>
 
   <!-- HEADER / NAVBAR -->
   <header>
@@ -314,7 +489,7 @@ header {
         <nav class="desktop">
           <a href="index.html">Home</a>
           <div class="dropdown">
-            <a href="services">Services ▾</a>
+            <a href="#">Services ▾</a>
             <div class="dropdown-menu">
               <a href="internships.html">Internships</a>
               <a href="project-management.html">Project Management</a>
@@ -455,19 +630,19 @@ header {
 
       <div class="footer-links">
         <strong>Programs</strong>
-        <a href="#">Python Programming</a>
-        <a href="#">Web Development</a>
-        <a href="#">Java Programming</a>
-        <a href="#">Frontend Development</a>
-        <a href="#">UI/UX Design</a>
-        <a href="#">C Programming</a>
+        <a href="internships.html">Python Programming</a>
+        <a href="internships.html">Web Development</a>
+        <a href="internships.html">Java Programming</a>
+        <a href="internships.html">Frontend Development</a>
+        <a href="internships.html">UI/UX Design</a>
+        <a href="internships.html">C Programming</a>
       </div>
 
       <div class="footer-links">
         <strong>Legal</strong>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Refund Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
       </div>
     </div>
     <div class="divider"></div>
@@ -526,5 +701,124 @@ header {
 
 
 </script>
+<!-- 🚀 Scroll Progress Button (Desktop Only) -->
+<div id="scrollProgress">
+  <svg class="progress-circle" width="60" height="60">
+    <circle class="bg" cx="30" cy="30" r="26"></circle>
+    <circle class="progress" cx="30" cy="30" r="26"></circle>
+  </svg>
+</div>
+
+<style>
+  /* ========== SCROLL PROGRESS BUTTON (CODYIN THEME - DESKTOP ONLY) ========== */
+  #scrollProgress {
+    position: fixed;
+    bottom: 35px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 180, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.1);
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  #scrollProgress.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .progress-circle {
+    transform: rotate(-90deg);
+  }
+
+  .progress-circle circle {
+    fill: none;
+    stroke-width: 4;
+    cx: 30;
+    cy: 30;
+    r: 26;
+  }
+
+  .progress-circle .bg {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+
+  .progress-circle .progress {
+    stroke: url(#grad);
+    stroke-linecap: round;
+    stroke-dasharray: 163.36; /* 2 * π * 26 */
+    stroke-dashoffset: 163.36;
+    transition: stroke-dashoffset 0.2s ease;
+  }
+
+  /* ✅ Hide Scroll Progress on Mobile Devices */
+  @media (max-width: 992px) {
+    #scrollProgress {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // ✅ Scroll Progress Functionality (Desktop Only)
+  const scrollBtn = document.getElementById("scrollProgress");
+  const progressCircle = document.querySelector(".progress-circle .progress");
+  const circumference = 2 * Math.PI * 26;
+  progressCircle.style.strokeDasharray = circumference;
+
+  // Add gradient dynamically
+  const svg = document.querySelector(".progress-circle");
+  const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  defs.innerHTML = `
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00B4FF"/>
+      <stop offset="100%" stop-color="#007BFF"/>
+    </linearGradient>`;
+  svg.prepend(defs);
+
+  // Scroll progress + visibility (desktop only)
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 992) return; // disable for mobile & tablets
+
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollTop / docHeight;
+    const offset = circumference - progress * circumference;
+
+    progressCircle.style.strokeDashoffset = offset;
+
+    if (scrollTop > 300) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+  // Smooth scroll to top
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+ 
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("codyin-loader");
+    setTimeout(() => {
+      loader.classList.add("fade-out");
+      document.body.classList.add("loaded");
+    }, 1000);
+  });
+</script>
+<!-- ================== END LOADER ================== -->
+
 </body>
 </html>
