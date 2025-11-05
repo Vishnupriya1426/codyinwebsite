@@ -416,7 +416,7 @@ header {
         <div class="brand">
           <a class="logo-btn" href="index.html">
             <div class="logo-img"><img src="logo.png" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
-            <div><strong style="font-size:14px">CODYIN</strong></div>
+            <div><strong style="font-family: 'Volkhov';font-size:14px">CODYIN</strong></div>
           </a>
         </div>
 
@@ -426,7 +426,7 @@ header {
             <a href="#">Services ▾</a>
             <div class="dropdown-menu">
               <a href="internships.html">Internships</a>
-              <a href="projects.html">Project Management</a>
+              <a href="projects.html">Projects</a>
             </div>
           </div>
           <a href="about.html">About Us</a>
@@ -452,7 +452,7 @@ header {
       <button class="mobile-dropbtn" onclick="toggleDropdown(event)">Services ▾</button>
       <div class="mobile-dropdown-content">
         <a href="internships.html" onclick="toggleMobile()">Internships</a>
-        <a href="projects.html" onclick="toggleMobile()">Project Management</a>
+        <a href="projects.html" onclick="toggleMobile()">Projects</a>
       </div>
     </div>
     <a href="about.html" onclick="toggleMobile()">About Us</a>
@@ -566,11 +566,11 @@ body {
     }
 
     .details span:nth-child(2)::before {
-      content: "📁 ";
+      content: "📋 ";
     }
 
     .details span:nth-child(3)::before {
-      content: "⚙️ ";
+      content: "🎓 ";
     }
 
     .learn {
@@ -671,10 +671,10 @@ body {
 <!-- ✅ CODYIN INTERNSHIPS HERO SECTION (FULLY ISOLATED) -->
 <section class="internship-hero">
   <div class="internship-hero-content">
-    <h1><span>Empower Your Future</span> with Codyin Internships</h1>
+    <h1><span>Empower Your Future with Codyin Internships</h1>
     <h2>Hands-on, <span>AI-Driven Learning</span> to Build Real-World Skills</h2>
     <p>Step into a world of innovation. Learn, create, and grow through immersive, project-based internships — guided by experts and powered by technology.</p>
-    <a href="internships" class="internship-btn">Explore Internships</a>
+    <a href="#internships" class="internship-btn">Explore Internships</a>
   </div>
 </section>
 
@@ -807,19 +807,24 @@ body {
       font-size: 0.9rem;
     }
   }
+
+  html {
+  scroll-behavior: smooth;
+}
+
 </style>
 
 
 
 
   <!-- internship Cards Section -->
-  <section class="internships">
+  <section id="internships" class="internships">
     <!-- Card 1 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174854.png" alt="HTML5">
+      <img src="html.png"alt="HTML5">
       <h3>Web Development Internship</h3>
       <div class="details">
-        <span>Duration: 2 Weeks–4 Months</span>
+        <span>Duration: 2 Weeks–4 Months</span>"
         <span>Project-Based</span>
         <span>Self-Paced</span>
       </div>
@@ -835,7 +840,7 @@ body {
 
     <!-- Card 2 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java">
+      <img src="java.png" alt="Java">
       <h3>Java Development Internship</h3>
       <div class="details">
         <span>Duration: 2 Weeks–4 Months</span>
@@ -854,7 +859,7 @@ body {
 
     <!-- Card 3 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/888/888859.png" alt="Frontend">
+      <img src="intern3.png" alt="Frontend">
       <h3>Frontend Web Development Internship</h3>
       <div class="details">
         <span>Duration: 2 Weeks–4 Months</span>
@@ -873,7 +878,7 @@ body {
 
     <!-- Card 4 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+      <img src="py.png" alt="Python">
       <h3>Python Development Internship</h3>
       <div class="details">
         <span>Duration: 2 Weeks–4 Months</span>
@@ -892,7 +897,7 @@ body {
 
     <!-- Card 5 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" alt="Figma">
+      <img src="Figma.png" alt="Figma">
       <h3>UI/UX Internship with Figma</h3>
       <div class="details">
         <span>Duration: 2 Weeks–4 Months</span>
@@ -911,7 +916,7 @@ body {
 
     <!-- Card 6 -->
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="C Programming">
+      <img src="C.png" alt="C Programming">
       <h3>C Programming Internship</h3>
       <div class="details">
         <span>Duration: 2 Weeks–4 Months</span>
@@ -1356,10 +1361,11 @@ drawStars();
     setTimeout(() => {
       loader.classList.add("fade-out");
       document.body.classList.add("loaded");
-    }, 2000);
+    }, 1000);
   });
 </script>
 <!-- ================== END LOADER ================== -->
+
 
 
 </body>

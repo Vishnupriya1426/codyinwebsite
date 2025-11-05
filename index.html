@@ -181,7 +181,7 @@
       --radius:14px;
       --maxw:1200px;
       --nav-height:72px;
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, 'Volkhov';
     }
 
     *{box-sizing:border-box}
@@ -197,7 +197,7 @@
     .brand{display:flex;align-items:center;gap:12px}
     .logo-btn{display:flex;align-items:center;gap:10px;cursor:pointer}
     .logo-img{width:46px;height:46px;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .brand h1{font-size:16px;margin:0;letter-spacing:0.6px}
+    .brand h1{font-family: 'Volkhov';font-size:16px;margin:0;letter-spacing:0.6px}
     nav.desktop{display:flex;align-items:center;gap:18px}
     nav.desktop a{padding:8px 10px;border-radius:8px;font-weight:600;color:#dfe9ff;display:inline-block;text-decoration:none;position:relative}
     nav.desktop a:hover{background:rgba(255,255,255,0.02);color:#00d8ff}
@@ -427,7 +427,7 @@ header {
         <div class="brand">
           <a class="logo-btn" href="index.html">
             <div class="logo-img"><img src="logo.png" alt="Codyin logo" style="width:100%;height:100%;object-fit:contain"></div>
-            <div><strong style="font-size:14px">CODYIN</strong></div>
+            <div><strong style=" font-family: 'Volkhov';font-size:14px">CODYIN</strong></div>
           </a>
         </div>
 
@@ -437,7 +437,7 @@ header {
             <a href="#">Services ▾</a>
             <div class="dropdown-menu">
               <a href="internships.html">Internships</a>
-              <a href="projects.html">Project Management</a>
+              <a href="projects.html">Projects</a>
             </div>
           </div>
           <a href="about.html">About Us</a>
@@ -463,7 +463,7 @@ header {
       <button class="mobile-dropbtn" onclick="toggleDropdown(event)">Services ▾</button>
       <div class="mobile-dropdown-content">
         <a href="internships.html" onclick="toggleMobile()">Internships</a>
-        <a href="projects.html" onclick="toggleMobile()">Project Management</a>
+        <a href="projects.html" onclick="toggleMobile()">Projects</a>
       </div>
     </div>
     <a href="about.html" onclick="toggleMobile()">About Us</a>
@@ -481,7 +481,10 @@ header {
   <div class="hero-content">
     <h1 class="rotating-text" id="changingText"></h1>
     <br>
-    <button>Get Started >></button>
+    <a href="internships.html">
+  <button>Get Started >></button>
+</a>
+
   </div>
 
   <div class="corner-services">
@@ -498,7 +501,7 @@ header {
     /* Hero Section */
   .hero {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?fit=crop&w=1500&q=80') center/cover no-repeat;
+  background: url("hero.jpeg")center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -734,7 +737,7 @@ header {
   <div class="about-container">
     <!-- Left: Image -->
     <div class="about-image fade-up">
-      <img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/11/innovative-learning-approaches-870x570.jpg" alt="About Codyin" />
+      <img src="index1.jpg" alt="About Codyin" />
     </div>
 
     <!-- Right: Content -->
@@ -1004,7 +1007,7 @@ document.addEventListener("scroll", function () {
 
     <div class="ai-animation fade-up">
       <img
-        src="https://www.starmind.ai/hs-fs/hubfs/ai-chip-pulsating-with-potential-revolutionize-our-digital-world.jpg?width=4000&height=2667&name=ai-chip-pulsating-with-potential-revolutionize-our-digital-world.jpg"
+        src="index2.jpg"
         alt="AI Internship Illustration"
       />
     </div>
