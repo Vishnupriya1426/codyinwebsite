@@ -1,49 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://codyin.in/</loc>
+    <loc>https://www.codyin.in/index.html</loc>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://codyin.in/internships.html</loc>
-    <priority>0.9</priority>
+    <loc>https://www.codyin.in/about.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/projects.html</loc>
-    <priority>0.8</priority>
+    <loc>https://www.codyin.in/contact.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/about.html</loc>
-    <priority>0.7</priority>
+    <loc>https://www.codyin.in/internships.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/contact.html</loc>
-    <priority>0.7</priority>
+    <loc>https://www.codyin.in/projects.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/faqs.html</loc>
-    <priority>0.6</priority>
+    <loc>https://www.codyin.in/faqs.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/privacy.html</loc>
-    <priority>0.5</priority>
+    <loc>https://www.codyin.in/privacy.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/terms.html</loc>
-    <priority>0.5</priority>
+    <loc>https://www.codyin.in/terms.html</loc>
   </url>
 
   <url>
-    <loc>https://codyin.in/refund.html</loc>
-    <priority>0.5</priority>
+    <loc>https://www.codyin.in/refund.html</loc>
   </url>
 
 </urlset>
