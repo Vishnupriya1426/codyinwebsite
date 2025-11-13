@@ -16,9 +16,10 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
-        "email": "codyin.services@gmail.com",
+        "email": "info@codyin.in",
         "availableLanguage": ["English"]
-      }
+      },
+      "mainEntityOfPage": "https://www.codyin.in/"
     },
 
     {
@@ -28,7 +29,8 @@
       "name": "Codyin Official Website",
       "description": "Learn and grow with AI-powered online internships and live projects. Get certified and gain industry-ready skills with Codyin.",
       "publisher": { "@id": "https://www.codyin.in/#organization" },
-      "inLanguage": "en"
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.codyin.in/"
     },
 
     {
@@ -37,18 +39,20 @@
       "name": "Codyin Online Internship Program",
       "provider": { "@id": "https://www.codyin.in/#organization" },
       "hasCourse": [
-        { "@type": "Course", "name": "Python Development Internship" },
-        { "@type": "Course", "name": "Web Development Internship" },
-        { "@type": "Course", "name": "Java Development Internship" },
-        { "@type": "Course", "name": "Frontend Development Internship" },
-        { "@type": "Course", "name": "UI/UX Design Internship" },
-        { "@type": "Course", "name": "C Programming Internship" }
+        { "@type": "Course", "name": "Python Development Internship", "url": "https://www.codyin.in/internships.html" },
+        { "@type": "Course", "name": "Web Development Internship", "url": "https://www.codyin.in/internships.html" },
+        { "@type": "Course", "name": "Java Development Internship", "url": "https://www.codyin.in/internships.html" },
+        { "@type": "Course", "name": "Frontend Development Internship", "url": "https://www.codyin.in/internships.html" },
+        { "@type": "Course", "name": "UI/UX Design Internship", "url": "https://www.codyin.in/internships.html" },
+        { "@type": "Course", "name": "C Programming Internship", "url": "https://www.codyin.in/internships.html" }
       ],
       "educationalCredentialAwarded": "Certificate of Completion",
-      "timeOfDay": "Flexible",
+      "timeRequired": "P2M",
       "providerMobility": "Online",
       "occupationalCategory": ["Software Development", "Design", "AI"],
-      "url": "https://www.codyin.in/internships.html"
+      "url": "https://www.codyin.in/internships.html",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://www.codyin.in/internships.html"
     },
 
     {
@@ -79,7 +83,8 @@
             "text": "Visit the internships page, choose your preferred program, and fill out the enrollment form. You’ll receive your offer letter via email within 24 hours."
           }
         }
-      ]
+      ],
+      "mainEntityOfPage": "https://www.codyin.in/faqs.html"
     }
   ]
 }
